@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { useLanguage, Language } from '../contexts/LanguageContext';
 import { useNavTranslations } from '../translations/navigation';
+import Logo from './Logo';
 
 type DropdownType = 'magotherapy' | 'gallery' | 'results' | null;
 
@@ -35,11 +36,7 @@ export default function Navigation() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between py-4">
           <Link to="/" className="flex items-center">
-            <img
-              src="/images/small_logo.png"
-              alt="Mago Clinic"
-              className="h-12 md:h-16 w-auto max-w-[200px] md:max-w-[370px]"
-            />
+            <Logo className="h-10 text-[40px] md:h-16 md:text-[64px]" />
           </Link>
 
           <button

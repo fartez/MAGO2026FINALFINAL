@@ -78,7 +78,7 @@ export default function MagotherapyPage() {
 
         <div className="grid md:grid-cols-2 gap-8 items-start mb-12">
           <div>
-            <img src="/images/mmm.jpg" alt="Vedensky" className="w-full rounded-lg shadow-lg" />
+            <img src="/images/guide/vedensky-brain.jpg" alt="Vedensky" className="w-full rounded-lg shadow-lg" />
           </div>
           <div className="text-lg leading-relaxed">
             <p>{t.vedenskyText}</p>
@@ -92,7 +92,7 @@ export default function MagotherapyPage() {
             </p>
           </div>
           <div>
-            <img src="/images/bednieri_bichi.png" alt="Happy child" className="w-full rounded-lg shadow-lg" />
+            <img src="/images/guide/magotherapy-brain.jpg" alt="Magotherapy" className="w-full rounded-lg shadow-lg" />
           </div>
         </div>
       </div>
@@ -108,7 +108,7 @@ export default function MagotherapyPage() {
             </div>
             <div>
               <img
-                src="/images/Parabiozi.jpeg"
+                src="/images/guide/parabiosis.jpg"
                 alt="პარაბიოზი - კლინიკური სიკვდილი"
                 className="w-full rounded-lg shadow-lg"
               />
@@ -178,7 +178,7 @@ export default function MagotherapyPage() {
                 <p>{t.neuronComparison2}</p>
               </div>
               <div>
-                <img src="/images/2057765d2f062d8(1).jpg" alt="Tree and neuron" className="w-full rounded-lg shadow-lg" />
+                <img src="/images/guide/neuron-tree.jpg" alt="Tree and neuron" className="w-full rounded-lg shadow-lg" />
               </div>
             </div>
           </div>
@@ -192,11 +192,25 @@ export default function MagotherapyPage() {
 
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div>
-            <img src="/images/ujredi.jpg" alt="Cell" className="w-full rounded-lg shadow-lg" />
+            {/* The Georgian-labelled cell diagram only makes sense on the Georgian
+                site; other languages get the English-labelled one. */}
+            <img
+              src={language === 'ge' ? '/images/ujredi.jpg' : '/images/guide/cell-diagram-en.jpg'}
+              alt="Cell"
+              className="w-full rounded-lg shadow-lg"
+            />
           </div>
           <div className="text-xl text-center leading-relaxed whitespace-pre-line">
             <p>{t.nerveImpulseFormationText}</p>
           </div>
+        </div>
+
+        <div className="max-w-3xl mx-auto mt-10">
+          <img
+            src="/images/guide/sodium-potassium-pump.jpg"
+            alt="Sodium-potassium pump"
+            className="w-full rounded-lg shadow-lg"
+          />
         </div>
       </div>
 
@@ -377,7 +391,7 @@ export default function MagotherapyPage() {
 
         <div className="grid md:grid-cols-2 gap-8 items-start mb-12">
           <div>
-            <img src="/images/Синие-молнии.jpg" alt="Lightning" className="w-full rounded-lg shadow-lg" />
+            <img src="/images/guide/lightning.jpg" alt="Lightning" className="w-full rounded-lg shadow-lg" />
           </div>
           <div className="text-lg leading-relaxed whitespace-pre-line">
             <p>{t.lightningText}</p>
@@ -445,7 +459,7 @@ export default function MagotherapyPage() {
 
         <div className="grid md:grid-cols-2 gap-8 items-center mb-12">
           <div>
-            <img src="/images/ukuchveneba.jpg" alt="Contraindications" className="w-full rounded-lg shadow-lg" />
+            <img src="/images/guide/contraindications-no.jpg" alt="Contraindications" className="w-full rounded-lg shadow-lg" />
           </div>
           <div className="text-xl">
             <ul className="space-y-4">
@@ -466,7 +480,7 @@ export default function MagotherapyPage() {
 
           <div className="flex items-center justify-center gap-8">
             <h2 className="text-5xl font-bold text-[#003366]">{t.excluded}</h2>
-            <img src="/images/gartuleba copy.jpg" alt="Excluded" className="w-96 rounded-lg shadow-2xl" />
+            <img src="/images/guide/side-effects-thumbs-up.jpg" alt="Excluded" className="w-96 rounded-lg shadow-2xl" />
           </div>
         </div>
 

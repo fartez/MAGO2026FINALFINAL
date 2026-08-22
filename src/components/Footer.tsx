@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useVisitorCount } from '../hooks/useVisitorCount';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useFooterTranslations } from '../translations/footer';
+import Logo from './Logo';
 
 export default function Footer() {
   const { total, todayCount, loading } = useVisitorCount();
@@ -21,11 +22,7 @@ export default function Footer() {
           <div>
             <h4 className="text-xl font-bold mb-4">{t.contact}</h4>
             <div className="h-1 w-16 bg-white/30 mb-6"></div>
-            <img
-              src="/images/small_logo.png"
-              alt="Mago Clinic"
-              className="h-10 w-auto max-w-[250px] mb-6"
-            />
+            <Logo className="h-10 text-[40px] mb-6" />
 
             <div className="space-y-4">
               <div className="flex items-start gap-3">

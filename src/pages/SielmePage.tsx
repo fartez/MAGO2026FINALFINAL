@@ -344,7 +344,7 @@ export default function SielmePage() {
           <div className="flex flex-col md:flex-row gap-8 items-center">
             <div className="flex-shrink-0">
               <img
-                src="/images/d8c9c41a322726df07f26884b2acc310.png"
+                src="/images/guide/amblyopia-boy.jpg"
                 alt="სიელმე სტატისტიკა"
                 className="w-[300px] h-auto object-contain"
               />

@@ -4,6 +4,7 @@ import { ChevronDown, ChevronUp } from 'lucide-react';
 import Header from '../components/Header';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
+import Logo from '../components/Logo';
 import YouTubeBanner from '../components/YouTubeBanner';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useAboutTranslations } from '../translations/about';
@@ -177,11 +178,7 @@ export default function AboutPage() {
             dangerouslySetInnerHTML={{ __html: t.advantagesTitle }}
           />
           <div className="flex flex-col items-center gap-2 mb-10">
-            <img
-              src="/images/small_logo.png"
-              alt="MaGo Clinic"
-              className="h-12 w-auto max-w-xs"
-            />
+            <Logo className="h-12 text-[48px]" />
             <p className="text-xl font-bold text-[#00265E] text-center">
               {t.experience}
               <br />

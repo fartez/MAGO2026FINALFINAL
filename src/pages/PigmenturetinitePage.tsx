@@ -179,7 +179,7 @@ export default function PigmenturetinitePage() {
             <div className="flex flex-col md:flex-row gap-8 items-center">
               <div className="md:w-1/3 flex justify-center flex-shrink-0">
                 <img
-                  src="/images/d8c9c41a322726df07f26884b2acc310.png"
+                  src="/images/guide/amblyopia-boy.jpg"
                   alt="გაითვალისწინეთ"
                   className="w-[280px] h-[280px] object-contain"
                 />

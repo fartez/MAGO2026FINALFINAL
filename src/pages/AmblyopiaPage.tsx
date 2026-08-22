@@ -74,7 +74,7 @@ export default function AmblyopiaPage() {
             </div>
             <div>
               <img
-                src="/newpage/100e1155-1f9f-4fd4-b2f2-2f3d3e404581_670x0_resize.jpg"
+                src="/images/guide/amblyopia-title.jpg"
                 alt="amblyopia"
                 className="w-full rounded-lg shadow-lg"
               />
@@ -123,7 +123,7 @@ export default function AmblyopiaPage() {
             </div>
             <div>
               <img
-                src="/images/AMBLIOPIA.jpg"
+                src="/images/guide/amblyopia-brain-path.jpg"
                 alt="binocular vision"
                 className="w-full rounded-lg shadow-lg"
               />
@@ -156,7 +156,7 @@ export default function AmblyopiaPage() {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
               <img
-                src="/images/d8c9c41a322726df07f26884b2acc310.png"
+                src="/images/guide/amblyopia-boy.jpg"
                 alt="child"
                 className="w-full max-w-[300px] mx-auto rounded-lg shadow-lg"
               />
@@ -202,7 +202,7 @@ export default function AmblyopiaPage() {
           <div className="grid md:grid-cols-2 gap-8 items-center mt-10 bg-[#D7EDF6] rounded-xl p-8">
             <div>
               <img
-                src="/newpage/satvale.jpg"
+                src="/images/guide/amblyopia-adult.jpg"
                 alt="glasses"
                 className="w-full rounded-lg shadow-lg"
               />
