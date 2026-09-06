@@ -92,7 +92,13 @@ export default function MagotherapyPage() {
             </p>
           </div>
           <div>
-            <img src="/images/guide/magotherapy-basis-2.jpg" alt="Magotherapy" className="w-full rounded-lg shadow-lg" />
+            {/* The three panel captions are part of the artwork, so there is one
+                rendering per language. */}
+            <img
+              src={`/images/guide/magotherapy-basis-2-${language}.jpg`}
+              alt="Magotherapy"
+              className="w-full rounded-lg shadow-lg"
+            />
           </div>
         </div>
       </div>

@@ -77,7 +77,7 @@ export default function AmblyopiaPage() {
                 src={
                   language === 'ru'
                     ? '/images/guide/amblyopia-title.jpg'
-                    : '/images/guide/amblyopia-lazy-eye-en.jpg'
+                    : `/images/guide/amblyopia-lazy-eye-${language}.jpg`
                 }
                 alt="amblyopia"
                 className="w-full rounded-lg shadow-lg"
@@ -259,7 +259,7 @@ export default function AmblyopiaPage() {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
               <img
-                src="/images/guide/amblyopia-visual-pathway.jpg"
+                src={`/images/guide/amblyopia-visual-pathway-${language}.jpg`}
                 alt="amblyopia"
                 className="w-full rounded-lg shadow-lg"
               />
