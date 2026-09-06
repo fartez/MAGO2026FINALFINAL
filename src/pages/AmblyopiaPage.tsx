@@ -74,7 +74,11 @@ export default function AmblyopiaPage() {
             </div>
             <div>
               <img
-                src="/images/guide/amblyopia-title.jpg"
+                src={
+                  language === 'ru'
+                    ? '/images/guide/amblyopia-title.jpg'
+                    : '/images/guide/amblyopia-lazy-eye-en.jpg'
+                }
                 alt="amblyopia"
                 className="w-full rounded-lg shadow-lg"
               />
@@ -241,7 +245,7 @@ export default function AmblyopiaPage() {
             </div>
             <div>
               <img
-                src="/newpage/ნორმა.png"
+                src="/images/guide/amblyopia-normal-vision.jpg"
                 alt="normal vision"
                 className="w-full rounded-lg shadow-lg"
               />
@@ -255,7 +259,7 @@ export default function AmblyopiaPage() {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
               <img
-                src="/newpage/ამბლიოპია6.jpg"
+                src="/images/guide/amblyopia-visual-pathway.jpg"
                 alt="amblyopia"
                 className="w-full rounded-lg shadow-lg"
               />

@@ -21,6 +21,11 @@ const galleryRows: Array<{ images: string[]; cols: number }> = [
   { images: ['123-1.jpg', '123-2.jpg'], cols: 2 },
   { images: ['124-1.jpg', '124-2.jpg'], cols: 2 },
   { images: ['115-1.jpg', '115-2.jpg'], cols: 2 },
+  { images: ['125.jpg'], cols: 1 },
+  { images: ['126.jpg'], cols: 1 },
+  { images: ['127.jpg'], cols: 1 },
+  { images: ['128.jpg'], cols: 1 },
+  { images: ['129.jpg'], cols: 1 },
 ];
 
 export default function PhotoGalleryPage() {
@@ -126,8 +131,8 @@ export default function PhotoGalleryPage() {
                   <div
                     key={imgIndex}
                     style={{
-                      flex: row.cols === 3 ? '1 1 280px' : '1 1 320px',
-                      maxWidth: row.cols === 3 ? '380px' : '520px',
+                      flex: row.cols === 3 ? '1 1 280px' : row.cols === 2 ? '1 1 320px' : '1 1 100%',
+                      maxWidth: row.cols === 3 ? '380px' : row.cols === 2 ? '520px' : '860px',
                       overflow: 'hidden',
                       borderRadius: '4px',
                     }}

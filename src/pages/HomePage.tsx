@@ -121,7 +121,7 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 gap-6 items-center">
             <div className="flex items-center justify-center">
               <img
-                src="/images/agidginet_mx(1).jpg"
+                src="/images/guide/home-brain.jpg"
                 alt="Magotherapy"
                 className="rounded-2xl shadow-2xl w-full max-h-[400px] object-cover object-center"
               />

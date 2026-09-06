@@ -135,7 +135,7 @@ export default function AboutPage() {
           <div className="flex flex-col lg:flex-row gap-8 items-start mb-10">
             <div className="lg:w-1/3 flex-shrink-0">
               <img
-                src="/newpage/about/fio.jpg"
+                src="/images/guide/about-maka.jpg"
                 alt="Maka Gogiashvili"
                 className="w-full rounded-xl shadow-lg object-cover max-h-[450px]"
               />
@@ -163,7 +163,7 @@ export default function AboutPage() {
             </div>
             <div className="md:w-1/4 flex-shrink-0">
               <img
-                src="/newpage/about/avtori.jpg"
+                src="/images/guide/about-author.jpg"
                 alt="Author"
                 className="w-full rounded-xl shadow-lg object-cover"
               />
@@ -263,7 +263,7 @@ export default function AboutPage() {
             </div>
             <div className="lg:w-2/5 flex-shrink-0">
               <img
-                src="/newpage/about/Cerebro.jpg"
+                src="/images/guide/about-how-vision-restored.jpg"
                 alt="Neural system"
                 className="w-full rounded-xl shadow-lg object-cover max-h-[450px]"
               />

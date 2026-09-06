@@ -59,7 +59,7 @@ export default function Footer() {
             <div className="h-1 w-16 bg-white/30 mb-6"></div>
             <p className="mb-4">{t.followSocial}</p>
 
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col items-start gap-3">
               <a
                 href="https://www.facebook.com/eyeclinicMaGo"
                 target="_blank"

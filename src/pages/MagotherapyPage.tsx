@@ -78,7 +78,7 @@ export default function MagotherapyPage() {
 
         <div className="grid md:grid-cols-2 gap-8 items-start mb-12">
           <div>
-            <img src="/images/guide/vedensky-brain.jpg" alt="Vedensky" className="w-full rounded-lg shadow-lg" />
+            <img src="/images/guide/magotherapy-basis-1.jpg" alt="Vedensky" className="w-full rounded-lg shadow-lg" />
           </div>
           <div className="text-lg leading-relaxed">
             <p>{t.vedenskyText}</p>
@@ -92,7 +92,7 @@ export default function MagotherapyPage() {
             </p>
           </div>
           <div>
-            <img src="/images/guide/magotherapy-brain.jpg" alt="Magotherapy" className="w-full rounded-lg shadow-lg" />
+            <img src="/images/guide/magotherapy-basis-2.jpg" alt="Magotherapy" className="w-full rounded-lg shadow-lg" />
           </div>
         </div>
       </div>
@@ -195,7 +195,13 @@ export default function MagotherapyPage() {
             {/* The Georgian-labelled cell diagram only makes sense on the Georgian
                 site; other languages get the English-labelled one. */}
             <img
-              src={language === 'ge' ? '/images/ujredi.jpg' : '/images/guide/cell-diagram-en.jpg'}
+              src={
+                language === 'ge'
+                  ? '/images/ujredi.jpg'
+                  : language === 'ru'
+                    ? '/images/guide/cell-diagram-ru.jpg'
+                    : '/images/guide/cell-diagram-en.jpg'
+              }
               alt="Cell"
               className="w-full rounded-lg shadow-lg"
             />
@@ -203,14 +209,6 @@ export default function MagotherapyPage() {
           <div className="text-xl text-center leading-relaxed whitespace-pre-line">
             <p>{t.nerveImpulseFormationText}</p>
           </div>
-        </div>
-
-        <div className="max-w-3xl mx-auto mt-10">
-          <img
-            src="/images/guide/sodium-potassium-pump.jpg"
-            alt="Sodium-potassium pump"
-            className="w-full rounded-lg shadow-lg"
-          />
         </div>
       </div>
 
@@ -297,28 +295,37 @@ export default function MagotherapyPage() {
 
         <p className="text-xl font-bold text-[#00265E] text-center mb-6">{t.biochemicalSubheading}</p>
 
-        <div className="bg-gray-50 rounded-lg p-8 mb-12">
-          <div className="space-y-4">
-            <div className="flex items-center gap-4">
-              <div className="w-16 h-16 shrink-0 rounded-full border-4 border-[#003366] flex items-center justify-center text-xl font-bold text-[#003366]">1</div>
-              <p className="text-lg">{t.biochemicalChange1}</p>
+        <div className="grid md:grid-cols-2 gap-8 items-center mb-12">
+          <div className="bg-gray-50 rounded-lg p-8">
+            <div className="space-y-4">
+              <div className="flex items-center gap-4">
+                <div className="w-16 h-16 shrink-0 rounded-full border-4 border-[#003366] flex items-center justify-center text-xl font-bold text-[#003366]">1</div>
+                <p className="text-lg">{t.biochemicalChange1}</p>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="w-16 h-16 shrink-0 rounded-full border-4 border-[#003366] flex items-center justify-center text-xl font-bold text-[#003366]">2</div>
+                <p className="text-lg">{t.biochemicalChange2}</p>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="w-16 h-16 shrink-0 rounded-full border-4 border-[#003366] flex items-center justify-center text-xl font-bold text-[#003366]">3</div>
+                <p className="text-lg">{t.biochemicalChange3}</p>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="w-16 h-16 shrink-0 rounded-full border-4 border-[#003366] flex items-center justify-center text-xl font-bold text-[#003366]">4</div>
+                <p className="text-lg">{t.biochemicalChange4}</p>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="w-16 h-16 shrink-0 rounded-full border-4 border-[#003366] flex items-center justify-center text-xl font-bold text-[#003366]">5</div>
+                <p className="text-lg">{t.biochemicalChange5}</p>
+              </div>
             </div>
-            <div className="flex items-center gap-4">
-              <div className="w-16 h-16 shrink-0 rounded-full border-4 border-[#003366] flex items-center justify-center text-xl font-bold text-[#003366]">2</div>
-              <p className="text-lg">{t.biochemicalChange2}</p>
-            </div>
-            <div className="flex items-center gap-4">
-              <div className="w-16 h-16 shrink-0 rounded-full border-4 border-[#003366] flex items-center justify-center text-xl font-bold text-[#003366]">3</div>
-              <p className="text-lg">{t.biochemicalChange3}</p>
-            </div>
-            <div className="flex items-center gap-4">
-              <div className="w-16 h-16 shrink-0 rounded-full border-4 border-[#003366] flex items-center justify-center text-xl font-bold text-[#003366]">4</div>
-              <p className="text-lg">{t.biochemicalChange4}</p>
-            </div>
-            <div className="flex items-center gap-4">
-              <div className="w-16 h-16 shrink-0 rounded-full border-4 border-[#003366] flex items-center justify-center text-xl font-bold text-[#003366]">5</div>
-              <p className="text-lg">{t.biochemicalChange5}</p>
-            </div>
+          </div>
+          <div>
+            <img
+              src="/images/guide/sodium-potassium-pump.jpg"
+              alt="Sodium-potassium pump"
+              className="w-full rounded-lg shadow-lg"
+            />
           </div>
         </div>
 

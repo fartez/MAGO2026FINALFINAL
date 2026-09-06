@@ -13,14 +13,14 @@ interface DiseaseCardData {
 }
 
 const diseaseImages: DiseaseCardData[] = [
-  { image: '/images/AMBLIOPIA.jpg', link: '/results/amblyopia' },
-  { image: '/images/retinitis.jpg', link: '/results/pigmentary-retinitis' },
-  { image: '/images/ojaxi.jpg', link: '/results/sielme' },
-  { image: '/images/gogonas.jpg', link: '/results/astigmatizm' },
-  { image: '/images/bebo.jpg', link: '/results/glaukoma' },
-  { image: '/images/hipermrtopia.jpg' },
-  { image: '/images/MIOPIA1.jpg' },
-  { image: '/images/NISTAGM.jpg' },
+  { image: '/images/guide/disease-amblyopia.jpg', link: '/results/amblyopia' },
+  { image: '/images/guide/disease-retinitis.jpg', link: '/results/pigmentary-retinitis' },
+  { image: '/images/guide/disease-strabismus.jpg', link: '/results/sielme' },
+  { image: '/images/guide/disease-astigmatism.jpg', link: '/results/astigmatizm' },
+  { image: '/images/guide/disease-glaucoma.jpg', link: '/results/glaukoma' },
+  { image: '/images/guide/disease-hyperopia.jpg' },
+  { image: '/images/guide/disease-myopia.jpg' },
+  { image: '/images/guide/disease-nystagmus.jpg' },
 ];
 
 function DiseaseCard({ card, title, description, successRate, link, seeMore }: {
