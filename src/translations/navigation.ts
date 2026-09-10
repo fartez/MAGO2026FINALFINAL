@@ -71,7 +71,7 @@ const navTranslations = {
     astigmatizm: 'Астигматизм',
     about: 'О нас',
     contact: 'Контакт',
-    media: 'Медиа',
+    media: 'СМИ',
     resultsGeneral: 'Результаты — Общие',
     resultsSielme: 'Результаты — Косоглазие',
     resultsPigmentary: 'Результаты — Пигментный ретинит',

@@ -19,6 +19,7 @@ import BookingPage from './pages/BookingPage';
 import AdminLoginPage from './pages/admin/AdminLoginPage';
 import AdminPage from './pages/admin/AdminPage';
 import MediaPage from './pages/MediaPage';
+import PersonaPage from './pages/PersonaPage';
 
 function App() {
   return (
@@ -43,6 +44,10 @@ function App() {
           <Route path="/admin-login" element={<AdminLoginPage />} />
           <Route path="/admin" element={<AdminPage />} />
           <Route path="/media" element={<MediaPage />} />
+          <Route
+            path="/media/persona-of-the-decade-maka-gogiashvili"
+            element={<PersonaPage />}
+          />
         </Routes>
       </LanguageProvider>
     </AdminAuthProvider>

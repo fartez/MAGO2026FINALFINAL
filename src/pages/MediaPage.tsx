@@ -1,8 +1,11 @@
+import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import YouTubeBanner from '../components/YouTubeBanner';
 import FloatingButtons from '../components/FloatingButtons';
+import { useLanguage } from '../contexts/LanguageContext';
+import { usePersonaTranslations, PERSONA_PATH } from '../translations/persona';
 
 function DateBadge({ date, tv }: { date: string; tv: string }) {
   return (
@@ -83,6 +86,9 @@ const timestamps = [
 ];
 
 export default function MediaPage() {
+  const { language } = useLanguage();
+  const p = usePersonaTranslations(language);
+
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <Header />
@@ -449,109 +455,96 @@ export default function MediaPage() {
         </h2>
       </div>
 
-      {/* ───── CARD 6: Persona Award 11.02.2026 ───── */}
+      {/* ───── CARD 6: Persona Award 11.02.2026 — teaser, full text on its own page ───── */}
       <div style={{ backgroundColor: 'rgb(215, 237, 246)', padding: '32px 0' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 20px' }}>
           <div style={{ backgroundColor: '#fff', borderRadius: '12px', boxShadow: '0 2px 10px rgba(0,0,0,0.09)', overflow: 'hidden' }}>
             <div style={{ backgroundColor: '#00265E', padding: '12px 22px', display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
               <span style={{ backgroundColor: '#1a56db', color: '#fff', borderRadius: '20px', padding: '3px 14px', fontSize: '0.78rem', fontWeight: 700 }}>
-                11.02.2026
+                {p.date}
               </span>
               <span style={{ color: '#fff', fontWeight: 700, fontSize: '0.88rem' }}>
-                საქართველოს წარმატებული ადამიანების დაჯილდოების ცერემონია „პერსონა"
+                {p.eyebrow}
               </span>
             </div>
-            <div style={{ padding: '24px 28px' }}>
-              <h3 style={{ color: '#00265E', fontSize: '0.95rem', fontWeight: 700, marginBottom: '14px', lineHeight: 1.5 }}>
-                „ათწლეულის პერსონა" მედიცინის განვითარებაში შეტანილი განსაკუთრებული
-                წვლილისთვის — ქალბატონ მაკა გოგიაშვილს
-              </h3>
-              <p style={{ fontSize: '0.82rem', color: '#374151', lineHeight: 1.75, margin: 0 }}>
-                მაკა გოგიაშვილი — მეცნიერი და გამომგონებელი, მედიცინის დოქტორი,
-                საერთაშორისო პატენტებით დაცული 12 სამეცნიერო გამოგონების ავტორი და
-                უნიკალური მეთოდის — მაგოთერაპიის (მაკა გოგიაშვილის თერაპიის) შემქმნელი.
-              </p>
-              <p style={{ fontSize: '0.82rem', color: '#374151', lineHeight: 1.75, marginTop: '10px' }}>
-                ქალბატონი მაკა არის ევროპელ ოფთალმოლოგთა საბჭოს წევრი, ამერიკული
-                სამეცნიერო და ოფთალმოლოგიური აკადემიების ქმედითი წევრი. მიღებული
-                აქვს ევროპული აკრედიტაციის საბჭოს უწყვეტი განათლების სერტიფიკატი
-                (EACCME) და ამერიკული აკადემიის (AMA) აღიარება. იგი ასევე გახლავთ
-                კლინიკა „ახალი ტექნოლოგიები – MaGo"-ს კლინიკური ხელმძღვანელი.
-              </p>
-              <p style={{ fontSize: '0.82rem', color: '#374151', lineHeight: 1.75, marginTop: '10px' }}>
-                მაკა გოგიაშვილი მრავალწლიანი სამეცნიერო და კლინიკური გამოცდილების
-                მქონე ექიმი-მეცნიერია. მან დაამთავრა თბილისის სახელმწიფო სამედიცინო
-                ინსტიტუტი, ხოლო სტუდენტობის წლებში მისი სამეცნიერო ნაშრომები და
-                მოხსენებები საერთაშორისო სტუდენტურ კონფერენციებზე ორი ოქროს მედლით
-                დაჯილდოვდა.
-              </p>
-              <p style={{ fontSize: '0.82rem', color: '#374151', lineHeight: 1.75, marginTop: '10px' }}>
-                სამეცნიერო საქმიანობის გასაგრძელებლად მან წარმატებით დაიცვა როგორც
-                საკანდიდატო, ასევე სადოქტორო ხარისხი მოსკოვის თვალის მიკროქირურგიის
-                ინსტიტუტში, აკადემიკოს სვიატოსლავ ფიოდოროვის ხელმძღვანელობით. იგი
-                ასევე მუშაობდა გამოჩენილ ნეიროფიზიოლოგთან, აკადემიკოს ნატალია
-                ბეხტერევასთან, ადამიანის ტვინის ინსტიტუტში, სადაც მიიღო
-                უმნიშვნელოვანესი სამეცნიერო და კლინიკური გამოცდილება.
-              </p>
-              <p style={{ fontSize: '0.82rem', color: '#374151', lineHeight: 1.75, marginTop: '10px' }}>
-                სწორედ ამ გამოცდილებამ ჩაუყარა საფუძველი მის მრავალ გამოგონებასა და
-                ინოვაციურ მეთოდს — მაგოთერაპიას, რომელიც ორგანიზმის შინაგანი
-                რესურსების გააქტიურებით, მხოლოდ აპარატურის გამოყენებით, ქირურგიული
-                ჩარევის, მედიკამენტებისა და გართულებების გარეშე, ბუნებრივი
-                ფიზიოლოგიური მეთოდით ახდენს მხედველობის აღდგენას. მეთოდი ეფექტურია
-                როგორც თვალის გავრცელებული დაავადებების, ასევე იმ პათოლოგიების
-                დროს, რომლებიც ხშირად „განუკურნებელ" დაავადებათა ჯგუფს მიეკუთვნება.
-                შედეგები ხშირ შემთხვევაში უკვე მეორე გამოკვლევიდან ერთ საათში შეიმჩნევა.
-              </p>
-              <p style={{ fontSize: '0.82rem', color: '#374151', lineHeight: 1.75, marginTop: '10px' }}>
-                მაგოთერაპიის უნიკალური შესაძლებლობების გამო, კლინიკა „ახალი
-                ტექნოლოგიები – MaGo" პაციენტებს მსოფლიოს სხვადასხვა ქვეყნიდან
-                მასპინძლობს. მკურნალობის წარმატების ერთ-ერთი მნიშვნელოვანი საფუძველია
-                პერსონიფიცირებული მიდგომა — თითოეული პაციენტისთვის ინდივიდუალური
-                სამკურნალო სქემის შემუშავება, რადგან თითოეული ადამიანი უნიკალურია.
-              </p>
-              <p style={{ fontSize: '0.82rem', color: '#374151', lineHeight: 1.75, marginTop: '10px' }}>
-                მაკა გოგიაშვილის პროფესიონალიზმი, მეცნიერული ხედვა და ინოვაციური
-                მიდგომები მნიშვნელოვან წვლილს შეადგენს თანამედროვე მედიცინის
-                განვითარებაში და მაგალითს წარმოადგენს მომავალი თაობებისთვის.
-              </p>
 
-              {/* Links */}
-              <div style={{ marginTop: '18px', display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
-                <a
-                  href="https://www.youtube.com/@magotherapy/videos"
-                  target="_blank"
-                  rel="noopener noreferrer"
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                gap: '28px',
+                padding: '26px 28px 28px',
+                alignItems: 'center',
+              }}
+            >
+              {/* Text */}
+              <div>
+                <span
                   style={{
                     display: 'inline-block',
-                    backgroundColor: '#CC0000',
-                    color: '#fff',
-                    borderRadius: '6px',
-                    padding: '7px 18px',
-                    fontSize: '0.8rem',
-                    fontWeight: 700,
-                    textDecoration: 'none',
+                    border: '1px solid #b8952d',
+                    color: '#b8952d',
+                    borderRadius: '20px',
+                    padding: '2px 16px',
+                    fontSize: '0.72rem',
+                    fontWeight: 800,
+                    letterSpacing: '0.28em',
+                    marginBottom: '12px',
                   }}
                 >
-                  YouTube არხი — ვიდეო გალერეა
-                </a>
-                <a
-                  href="https://mago.ge/catpage.php?lang=ka&catpage_id=12"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  {p.badge}
+                </span>
+                <h3 style={{ color: '#00265E', fontSize: '1.15rem', fontWeight: 800, margin: '0 0 4px', lineHeight: 1.4 }}>
+                  {p.kicker}
+                </h3>
+                <p style={{ color: '#00265E', fontSize: '0.95rem', fontWeight: 700, margin: '0 0 12px' }}>
+                  {p.name}
+                </p>
+                <p style={{ fontSize: '0.82rem', color: '#374151', lineHeight: 1.75, margin: 0 }}>
+                  {p.lead}
+                </p>
+                <Link
+                  to={PERSONA_PATH}
                   style={{
                     display: 'inline-block',
+                    marginTop: '18px',
                     backgroundColor: '#00265E',
                     color: '#fff',
                     borderRadius: '6px',
-                    padding: '7px 18px',
-                    fontSize: '0.8rem',
+                    padding: '9px 22px',
+                    fontSize: '0.82rem',
                     fontWeight: 700,
                     textDecoration: 'none',
                   }}
                 >
-                  პაციენტების გამოცდილება — mago.ge
-                </a>
+                  {p.readMore} →
+                </Link>
+              </div>
+
+              {/* Photo slot — replaced with the ceremony photograph once supplied */}
+              <div>
+                <div
+                  role="img"
+                  aria-label={p.imageAlt}
+                  style={{
+                    width: '100%',
+                    aspectRatio: '16 / 10',
+                    borderRadius: '10px',
+                    border: '2px dashed #9db4d4',
+                    backgroundColor: '#eef4fb',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    textAlign: 'center',
+                    padding: '18px',
+                    color: '#5b7398',
+                    fontSize: '0.78rem',
+                    fontWeight: 600,
+                    lineHeight: 1.6,
+                  }}
+                >
+                  {p.photoPlaceholder}
+                </div>
               </div>
             </div>
           </div>
