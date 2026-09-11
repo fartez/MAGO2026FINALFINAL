@@ -21,6 +21,7 @@ const videos = [
 export default function AstigmatizmPage() {
   const { language, getSiteContent } = useLanguage();
   const raw = useAstigmatizmTranslations(language);
+  const diagramLang = language === 'ge' ? 'ka' : language;
   const p = 'astigmatizm';
   const t = Object.fromEntries(
     Object.entries(raw).map(([k, v]) => [k, typeof v === 'string' ? getSiteContent(p, k, v) : v])
@@ -87,9 +88,9 @@ export default function AstigmatizmPage() {
             </div>
             <div>
               <img
-                src="/newpage/astigmatizm/ASTIGMATIZM.png"
+                src={`/newpage/astigmatizm/astigmatizm-${diagramLang}.png`}
                 alt="astigmatism diagram"
-                className="w-full rounded-lg shadow-lg"
+                className="w-full max-w-[420px] mx-auto rounded-lg shadow-lg"
               />
             </div>
           </div>
@@ -177,7 +178,7 @@ export default function AstigmatizmPage() {
               <img
                 src="/newpage/astigmatizm/Tandayolili.jpg"
                 alt="astigmatism in children"
-                className="w-full rounded-lg shadow-lg"
+                className="w-full max-w-[300px] mx-auto rounded-lg shadow-lg"
               />
             </div>
           </div>
@@ -216,7 +217,7 @@ export default function AstigmatizmPage() {
             </div>
             <div>
               <img
-                src="/newpage/astigmatizm/tval-foto.png"
+                src="/newpage/astigmatizm/tval-foto.jpg"
                 alt="astigmatism correction"
                 className="w-full rounded-lg shadow-lg"
               />
@@ -247,9 +248,14 @@ export default function AstigmatizmPage() {
             </div>
             <div>
               <img
-                src="/newpage/astigmatizm/fotoaparat.png"
+                src="/newpage/astigmatizm/fotoaparat.jpg"
                 alt="magotherapy principle"
                 className="w-full rounded-lg shadow-lg"
+              />
+              <img
+                src="/newpage/astigmatizm/eye-tech.jpg"
+                alt="magotherapy principle"
+                className="w-full rounded-lg shadow-lg mt-6"
               />
             </div>
           </div>

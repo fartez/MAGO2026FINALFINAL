@@ -92,8 +92,7 @@ export default function GlaukomaPage() {
               <img
                 src="/newpage/glaucoma/glaukomafoto.jpg"
                 alt="Glaucoma illustration"
-                className="w-full object-cover rounded"
-                style={{ minHeight: '380px', maxHeight: '520px' }}
+                className="w-full h-auto object-contain rounded"
               />
             </div>
           </div>
@@ -157,7 +156,7 @@ export default function GlaukomaPage() {
               <img
                 src="/newpage/glaucoma/rodis_vitardeba_glaukoma.jpg"
                 alt="როდის ვითარდება გლაუკომა"
-                className="w-full h-auto object-cover rounded"
+                className="w-full max-w-[480px] mx-auto h-auto object-contain rounded"
               />
             </div>
             <div className="md:w-1/2 space-y-4">
@@ -229,7 +228,7 @@ export default function GlaukomaPage() {
         <div className="max-w-6xl mx-auto">
           <div className="flex justify-center mb-6">
             <img
-              src="/newpage/glaucoma/daxuruli.jpg"
+              src="/images/daxuruli.jpg"
               alt="დახურული კუთხის გლაუკომა"
               className="w-full max-w-[600px] h-auto object-cover rounded"
             />

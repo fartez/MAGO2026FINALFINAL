@@ -50,7 +50,7 @@ export default function PigmenturetinitePage() {
               <img
                 src="/images/retinitis_saTauris_suraTi.jpg"
                 alt="პიგმენტური რეტინიტი"
-                className="w-full max-w-[500px] h-[280px] object-cover rounded"
+                className="w-full max-w-[360px] mx-auto h-auto object-contain rounded"
               />
             </div>
             <div className="md:w-1/2 space-y-3">
@@ -179,9 +179,9 @@ export default function PigmenturetinitePage() {
             <div className="flex flex-col md:flex-row gap-8 items-center">
               <div className="md:w-1/3 flex justify-center flex-shrink-0">
                 <img
-                  src="/images/guide/amblyopia-boy.jpg"
+                  src="/images/guide/exclamation.png"
                   alt="გაითვალისწინეთ"
-                  className="w-[280px] h-[280px] object-contain"
+                  className="w-[160px] h-[160px] object-contain"
                 />
               </div>
               <div className="md:w-2/3">
@@ -245,7 +245,7 @@ export default function PigmenturetinitePage() {
             <img
               src="/images/img1.jpg"
               alt="მაგოთერაპია"
-              className="w-full max-w-[500px] h-[320px] object-cover rounded"
+              className="w-full max-w-[500px] h-auto object-contain rounded bg-white"
             />
           </div>
           <div className="md:w-1/2 text-center md:text-left">
@@ -278,18 +278,18 @@ export default function PigmenturetinitePage() {
       </div>
 
       <div className="py-10 px-4">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-8 items-start">
-          <div className="md:w-1/2 space-y-4">
-            <p className="text-xl leading-relaxed">{t.howText1}</p>
-            <p className="text-xl leading-relaxed">{t.howText2}</p>
-            <p className="text-xl leading-relaxed">{t.howText3}</p>
-          </div>
-          <div className="md:w-1/2 flex justify-center">
+        <div className="max-w-6xl mx-auto space-y-8">
+          <div className="flex justify-center">
             <img
               src="/images/videodan.jpg"
               alt="მაგოთერაპია პროცედურა"
-              className="w-full max-w-[550px] h-[420px] object-cover rounded"
+              className="w-full max-w-[550px] h-auto object-cover rounded"
             />
+          </div>
+          <div className="space-y-4">
+            <p className="text-xl leading-relaxed">{t.howText1}</p>
+            <p className="text-xl leading-relaxed">{t.howText2}</p>
+            <p className="text-xl leading-relaxed">{t.howText3}</p>
           </div>
         </div>
       </div>
