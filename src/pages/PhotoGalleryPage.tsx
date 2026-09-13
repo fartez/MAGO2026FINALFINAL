@@ -9,15 +9,10 @@ import FloatingButtons from '../components/FloatingButtons';
 
 const galleryRows: Array<{ images: string[]; cols: number }> = [
   { images: ['114-1.jpg', '114-2.jpg', '114-3.jpg'], cols: 3 },
-  { images: ['112-1.jpg', '112-2.jpg', '112-3.jpg'], cols: 3 },
   { images: ['111-1.jpg', '111-2.jpg', '111-3.jpg'], cols: 3 },
   { images: ['119-1.jpg', '119-2.jpg'], cols: 2 },
   { images: ['117-1.jpg', '117-2.jpg'], cols: 2 },
-  { images: ['118-1.jpg', '118-2.jpg'], cols: 2 },
-  { images: ['113-1.jpg', '113-2.jpg'], cols: 2 },
-  { images: ['120-1.jpg', '120-2.jpg'], cols: 2 },
   { images: ['121-1.jpg', '121-2.jpg'], cols: 2 },
-  { images: ['122-1.jpg', '122-2.jpg'], cols: 2 },
   { images: ['123-1.jpg', '123-2.jpg'], cols: 2 },
   { images: ['124-1.jpg', '124-2.jpg'], cols: 2 },
   { images: ['115-1.jpg', '115-2.jpg'], cols: 2 },

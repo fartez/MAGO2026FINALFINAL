@@ -9,7 +9,7 @@ import { useAmblyopiaTranslations } from '../translations/amblyopia';
 import FloatingButtons from '../components/FloatingButtons';
 
 const videos = [
-  'https://www.youtube.com/embed/Le9MTmncPC8',
+  'https://www.youtube.com/embed/b0t2LX_RcwE',
   'https://www.youtube.com/embed/adcdz1AOh9Q',
   'https://www.youtube.com/embed/NzP2psuevmQ',
   'https://www.youtube.com/embed/sg2FMRX4pLQ',

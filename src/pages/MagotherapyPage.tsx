@@ -370,7 +370,15 @@ export default function MagotherapyPage() {
         </div>
 
         <div className="text-center mb-12">
-          <img src="/images/sqema.png" alt="Schema" className="mx-auto max-w-full rounded-lg shadow-lg" />
+          {/* sqema.png is not in the repo yet — the slot stays hidden until it is added to public/images */}
+          <img
+            src="/images/sqema.png"
+            alt="Schema"
+            className="mx-auto max-w-full rounded-lg shadow-lg"
+            onError={e => {
+              (e.currentTarget.parentElement as HTMLElement).style.display = 'none';
+            }}
+          />
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 items-center">
