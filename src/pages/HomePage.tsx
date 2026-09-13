@@ -6,6 +6,25 @@ import YouTubeBanner from '../components/YouTubeBanner';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useHomeTranslations } from '../translations/home';
 import FloatingButtons from '../components/FloatingButtons';
+import { useSeo } from '../hooks/useSeo';
+
+const homeSeo = {
+  ge: {
+    title: 'MaGo — თვალის კლინიკა „ახალი ტექნოლოგიები“ | მაგოთერაპია',
+    description:
+      'თვალის კლინიკა „ახალი ტექნოლოგიები — MaGo“, თბილისი. მხედველობის აღდგენა მაგოთერაპიით — აპარატურული პერსონიფიცირებული მკურნალობა ქირურგიისა და მედიკამენტების გარეშე.',
+  },
+  en: {
+    title: 'MaGo — New Technologies Eye Clinic | Magotherapy',
+    description:
+      'New Technologies — MaGo eye clinic, Tbilisi. Vision restoration with Magotherapy — personalised device-based treatment without surgery or medication.',
+  },
+  ru: {
+    title: 'MaGo — глазная клиника «Новые технологии» | Маготерапия',
+    description:
+      'Глазная клиника «Новые технологии — MaGo», Тбилиси. Восстановление зрения Маготерапией — аппаратное персонифицированное лечение без операции и медикаментов.',
+  },
+} as const;
 
 export default function HomePage() {
   const { language, getSiteContent } = useLanguage();
@@ -14,6 +33,15 @@ export default function HomePage() {
   const t = Object.fromEntries(
     Object.entries(raw).map(([k, v]) => [k, typeof v === 'string' ? getSiteContent(p, k, v) : v])
   ) as typeof raw;
+
+  useSeo({
+    language,
+    title: homeSeo[language].title,
+    description: homeSeo[language].description,
+    ogImage: '/og-image.jpg',
+    canonicalPath: '/',
+    ogType: 'website',
+  });
 
   return (
     <div className="min-h-screen bg-white">

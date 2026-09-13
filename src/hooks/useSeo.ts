@@ -13,6 +13,7 @@ interface SeoOptions {
   ogImage?: string;
   ogImageAlt?: string;
   canonicalPath?: string;
+  ogType?: 'website' | 'article';
 }
 
 /** Undo functions collected while the tags are written, run on unmount. */
@@ -69,6 +70,7 @@ export function useSeo({
   ogImage,
   ogImageAlt,
   canonicalPath,
+  ogType = 'article',
 }: SeoOptions) {
   useEffect(() => {
     const undo: Restore[] = [];
@@ -81,7 +83,7 @@ export function useSeo({
     setMeta(undo, 'meta[name="description"]', 'name', 'description', description);
     if (keywords) setMeta(undo, 'meta[name="keywords"]', 'name', 'keywords', keywords);
 
-    setMeta(undo, 'meta[property="og:type"]', 'property', 'og:type', 'article');
+    setMeta(undo, 'meta[property="og:type"]', 'property', 'og:type', ogType);
     setMeta(undo, 'meta[property="og:title"]', 'property', 'og:title', ogTitle || title);
     setMeta(undo, 'meta[property="og:description"]', 'property', 'og:description', ogDescription || description);
     setMeta(undo, 'meta[property="og:locale"]', 'property', 'og:locale', HTML_LANG[language]);
@@ -112,5 +114,5 @@ export function useSeo({
       document.documentElement.lang = previousLang;
       for (const restore of undo.reverse()) restore();
     };
-  }, [language, title, description, keywords, ogTitle, ogDescription, ogImage, ogImageAlt, canonicalPath]);
+  }, [language, title, description, keywords, ogTitle, ogDescription, ogImage, ogImageAlt, canonicalPath, ogType]);
 }
