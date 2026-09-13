@@ -86,9 +86,9 @@ export default function Footer() {
               <div className="font-bold">
                 {t.visitorsCount} – <strong>{formattedTotal}</strong>
               </div>
-              {!loading && todayCount > 0 && (
+              {!loading && (
                 <div className="mt-1 text-white/70 text-sm">
-                  +{todayCount.toLocaleString('en-US')} visited today
+                  +{todayCount.toLocaleString('en-US')} {t.visitedToday}
                 </div>
               )}
             </div>
