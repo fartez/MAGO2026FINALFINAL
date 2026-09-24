@@ -64,21 +64,21 @@ export default function Footer() {
                 href="https://www.facebook.com/eyeclinicMaGo"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 px-5 py-3 rounded-lg transition-opacity hover:opacity-85 w-full sm:w-auto"
+                className="inline-flex items-center gap-3 px-5 py-3 rounded-lg transition-opacity hover:opacity-85 w-auto max-w-full"
                 style={{ backgroundColor: '#1877F2' }}
               >
                 <Facebook className="w-6 h-6 flex-shrink-0" />
-                <span className="font-bold text-lg">{t.facebookButton}</span>
+                <span className="font-bold text-base sm:text-lg">{t.facebookButton}</span>
               </a>
               <a
                 href="https://www.youtube.com/channel/UCfWbr2cXHIoHqQPgGphWR0Q"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 px-5 py-3 rounded-lg transition-opacity hover:opacity-85 w-full sm:w-auto"
+                className="inline-flex items-center gap-3 px-5 py-3 rounded-lg transition-opacity hover:opacity-85 w-auto max-w-full"
                 style={{ backgroundColor: '#FF0000' }}
               >
                 <Youtube className="w-6 h-6 flex-shrink-0" />
-                <span className="font-bold text-lg">{t.youtubeButton}</span>
+                <span className="font-bold text-base sm:text-lg">{t.youtubeButton}</span>
               </a>
             </div>
 

@@ -282,11 +282,11 @@ export default function HomePage() {
       <div className="bg-[#00265E] text-white py-6">
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="grid md:grid-cols-2 gap-6 items-center">
-            <div className="hidden md:block">
+            <div className="flex justify-center md:block">
               <img
                 src="/images/avtori.jpg"
                 alt="Doctor Maka Gogiashvili"
-                className="rounded-2xl shadow-2xl w-full max-w-sm"
+                className="rounded-2xl shadow-2xl w-full max-w-[260px] md:max-w-sm"
               />
             </div>
 
