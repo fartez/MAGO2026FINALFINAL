@@ -7,15 +7,16 @@ import YouTubeBanner from '../components/YouTubeBanner';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useAstigmatizmTranslations } from '../translations/astigmatizm';
 import FloatingButtons from '../components/FloatingButtons';
+import { patientVideos, embedUrl } from '../data/patientVideos';
 
 const videos = [
-  'https://www.youtube.com/embed/oxpYCmR03N8',
-  'https://www.youtube.com/embed/sV9NEV8YU7Y',
-  'https://www.youtube.com/embed/s2HphimurFM',
-  'https://www.youtube.com/embed/B_H8QFjcdSA',
-  'https://www.youtube.com/embed/k5-q5zMJ-MU',
-  'https://www.youtube.com/embed/sg2FMRX4pLQ',
-  'https://www.youtube.com/embed/TEQj6xe5kpU',
+  'oxpYCmR03N8',
+  'sV9NEV8YU7Y',
+  's2HphimurFM',
+  'B_H8QFjcdSA',
+  'k5-q5zMJ-MU',
+  'sg2FMRX4pLQ',
+  'TEQj6xe5kpU',
 ];
 
 export default function AstigmatizmPage() {
@@ -302,12 +303,12 @@ export default function AstigmatizmPage() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-            {videos.map((src, i) => (
-              <div key={i} className="aspect-video rounded-lg overflow-hidden shadow-lg">
+            {patientVideos(language, 'astigmatizmi', videos).map((video) => (
+              <div key={video.id} className="aspect-video rounded-lg overflow-hidden shadow-lg">
                 <iframe
                   width="100%"
                   height="100%"
-                  src={src}
+                  src={embedUrl(video)}
                   frameBorder="0"
                   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen

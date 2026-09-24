@@ -7,6 +7,7 @@ import YouTubeBanner from '../components/YouTubeBanner';
 import { useLanguage } from '../contexts/LanguageContext';
 import { usePigmenturetiniteTranslations } from '../translations/pigmenturetinite';
 import FloatingButtons from '../components/FloatingButtons';
+import { patientVideos, embedUrl } from '../data/patientVideos';
 
 export default function PigmenturetinitePage() {
   const { language, getSiteContent } = useLanguage();
@@ -323,18 +324,18 @@ export default function PigmenturetinitePage() {
             {t.patientVideosTitle}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-            {[
-              { id: 'P2MaWhAK14s', title: 'patient-video-1' },
-              { id: 'O1y_DNsjFq4', title: 'patient-video-2' },
-              { id: '_aoaJA_TxZk', title: 'patient-video-3' },
-            ].map(({ id, title }) => (
-              <div key={id} className="aspect-video">
+            {patientVideos(language, 'pigmenturiRetiniti', [
+              'P2MaWhAK14s',
+              'O1y_DNsjFq4',
+              '_aoaJA_TxZk',
+            ]).map((video, i) => (
+              <div key={video.id} className="aspect-video">
                 <iframe
                   className="w-full h-full rounded shadow"
-                  src={`https://www.youtube.com/embed/${id}`}
+                  src={embedUrl(video)}
                   frameBorder="0"
                   allowFullScreen
-                  title={title}
+                  title={`patient-video-${i + 1}`}
                 />
               </div>
             ))}

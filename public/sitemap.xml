@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://mago.ge/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://mago.ge/magotherapy</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://mago.ge/about</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mago.ge/media</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mago.ge/faq</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mago.ge/photo-gallery</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mago.ge/video-gallery</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mago.ge/results/general</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mago.ge/results/sielme</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mago.ge/results/pigmentary-retinitis</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mago.ge/results/amblyopia</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mago.ge/results/glaukoma</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mago.ge/results/astigmatizm</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mago.ge/contact</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mago.ge/booking</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mago.ge/media/persona-of-the-decade-maka-gogiashvili</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mago.ge/ka/forbes/oftalmologiis-akhali-khedva</loc>
+    <lastmod>2026-04-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ka-GE" href="https://mago.ge/ka/forbes/oftalmologiis-akhali-khedva"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://mago.ge/ru/forbes/novyy-vzglyad-na-oftalmologiyu"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mago.ge/en/forbes/redefining-ophthalmology-awakening-dormant-cells"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mago.ge/en/forbes/redefining-ophthalmology-awakening-dormant-cells"/>
+  </url>
+  <url>
+    <loc>https://mago.ge/ru/forbes/novyy-vzglyad-na-oftalmologiyu</loc>
+    <lastmod>2026-04-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ka-GE" href="https://mago.ge/ka/forbes/oftalmologiis-akhali-khedva"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://mago.ge/ru/forbes/novyy-vzglyad-na-oftalmologiyu"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mago.ge/en/forbes/redefining-ophthalmology-awakening-dormant-cells"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mago.ge/en/forbes/redefining-ophthalmology-awakening-dormant-cells"/>
+  </url>
+  <url>
+    <loc>https://mago.ge/en/forbes/redefining-ophthalmology-awakening-dormant-cells</loc>
+    <lastmod>2026-04-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ka-GE" href="https://mago.ge/ka/forbes/oftalmologiis-akhali-khedva"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://mago.ge/ru/forbes/novyy-vzglyad-na-oftalmologiyu"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mago.ge/en/forbes/redefining-ophthalmology-awakening-dormant-cells"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mago.ge/en/forbes/redefining-ophthalmology-awakening-dormant-cells"/>
+  </url>
+</urlset>

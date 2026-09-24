@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { LanguageProvider } from './contexts/LanguageContext';
 import { AdminAuthProvider } from './contexts/AdminAuthContext';
 import ScrollToTop from './components/ScrollToTop';
@@ -20,6 +20,15 @@ import AdminLoginPage from './pages/admin/AdminLoginPage';
 import AdminPage from './pages/admin/AdminPage';
 import MediaPage from './pages/MediaPage';
 import PersonaPage from './pages/PersonaPage';
+import ForbesPage from './pages/ForbesPage';
+import { FORBES_PATHS } from './translations/forbes';
+import { useLanguage } from './contexts/LanguageContext';
+
+/** /forbes lands on the URL for the language the visitor is already reading. */
+function ForbesRedirect() {
+  const { language } = useLanguage();
+  return <Navigate to={FORBES_PATHS[language]} replace />;
+}
 
 function App() {
   return (
@@ -48,6 +57,10 @@ function App() {
             path="/media/persona-of-the-decade-maka-gogiashvili"
             element={<PersonaPage />}
           />
+          <Route path="/forbes" element={<ForbesRedirect />} />
+          <Route path={FORBES_PATHS.ge} element={<ForbesPage pageLanguage="ge" />} />
+          <Route path={FORBES_PATHS.ru} element={<ForbesPage pageLanguage="ru" />} />
+          <Route path={FORBES_PATHS.en} element={<ForbesPage pageLanguage="en" />} />
         </Routes>
       </LanguageProvider>
     </AdminAuthProvider>

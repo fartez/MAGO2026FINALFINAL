@@ -16,9 +16,14 @@ interface MediaTranslation {
   typeTv: string;
   typeRadio: string;
   typeAward: string;
+  typePress: string;
   navigationLabel: string;
   detailsLabel: string;
   callToBook: string;
+  watchOnSite: string;
+  readPublication: string;
+  beforeLabel: string;
+  afterLabel: string;
   items: Record<string, MediaItemText>;
 }
 
@@ -29,9 +34,14 @@ const mediaTranslations: Record<Language, MediaTranslation> = {
     typeTv: 'TV',
     typeRadio: 'რადიო',
     typeAward: 'ჯილდო',
+    typePress: 'პრესა',
     navigationLabel: 'გადაცემის ნავიგაცია (წუთები):',
     detailsLabel: 'დეტალური ინფორმაცია · პაციენტების გამოცდილება',
     callToBook: 'ჩასაწერათ დარეკეთ',
+    watchOnSite: 'ნახეთ ვიდეო palitranews.ge-ზე',
+    readPublication: 'იხილეთ პუბლიკაცია',
+    beforeLabel: 'მკურნალობამდე',
+    afterLabel: 'მკურნალობის შემდეგ',
     items: {
       anano: {
         source: 'TV PALITRA NEWS | გადაცემა მკურნალი',
@@ -47,6 +57,22 @@ const mediaTranslations: Record<Language, MediaTranslation> = {
         linkText:
           'პაციენტის დედა გიზიარებთ გამოცდილებას და მოგიწოდებთ მიმართოთ მხედველობის აღდგენის უსაფრთხო მეთოდს — მაგოთერაპია.',
         linkAuthor: 'ანანო თავხელიძე',
+      },
+      palitra2024: {
+        source: 'Palitra News | ვიდეო',
+        title: 'წინსვლა მხედველობის აღდგენაში — ოფთალმოლოგი მაკა გოგიაშვილი',
+        paragraphs: [
+          'Palitra News-ის სიუჟეტში ოფთალმოლოგი მაკა გოგიაშვილი საუბრობს მხედველობის აღდგენაში მიღწეულ წინსვლაზე — აპარატურულ, პერსონიფიცირებულ მკურნალობაზე ქირურგიული ჩარევისა და მედიკამენტების გარეშე.',
+        ],
+        imageAlt: 'წინსვლა მხედველობის აღდგენაში — ოფთალმოლოგი მაკა გოგიაშვილი, Palitra News',
+      },
+      forbes: {
+        source: 'Forbes Georgia | პუბლიკაცია',
+        title: 'ოფთალმოლოგიის ახალი ხედვა: „მძინარე“ უჯრედების გააქტიურება',
+        paragraphs: [
+          'Forbes Georgia-ს პუბლიკაცია მედიცინის მეცნიერებათა დოქტორ მაკა გოგიაშვილსა და მაგოთერაპიაზე: უჯრედული რეგენერაცია, 12 საერთაშორისო პატენტი და 10 000-ზე მეტი შემთხვევა მსოფლიოს მასშტაბით.',
+        ],
+        imageAlt: 'მაკა გოგიაშვილი Forbes Georgia-ს პუბლიკაციაში',
       },
       iveria: {
         source: 'რადიო ივერია საპატრიარქოს (105.5) | გადაცემა „კონსილიუმი“',
@@ -100,9 +126,14 @@ const mediaTranslations: Record<Language, MediaTranslation> = {
     typeTv: 'TV',
     typeRadio: 'Radio',
     typeAward: 'Award',
+    typePress: 'Press',
     navigationLabel: 'Programme navigation (minutes):',
     detailsLabel: 'Detailed information · Patient experience',
     callToBook: 'To book, call',
+    watchOnSite: 'Watch the video on palitranews.ge',
+    readPublication: 'Read the publication',
+    beforeLabel: 'Before treatment',
+    afterLabel: 'After treatment',
     items: {
       anano: {
         source: 'TV PALITRA NEWS | Programme “Mkurnali” (The Healer)',
@@ -118,6 +149,22 @@ const mediaTranslations: Record<Language, MediaTranslation> = {
         linkText:
           "The patient's mother shares her experience and urges you to turn to the safe method of restoring vision — Magotherapy.",
         linkAuthor: 'Anano Tavkhelidze',
+      },
+      palitra2024: {
+        source: 'Palitra News | Video',
+        title: 'Progress in vision restoration — ophthalmologist Maka Gogiashvili',
+        paragraphs: [
+          'In this Palitra News report, ophthalmologist Maka Gogiashvili talks about the progress made in restoring vision — personalised device-based treatment without surgery or medication.',
+        ],
+        imageAlt: 'Progress in vision restoration — ophthalmologist Maka Gogiashvili, Palitra News',
+      },
+      forbes: {
+        source: 'Forbes Georgia | Feature',
+        title: 'Redefining Ophthalmology: Awakening Dormant Cells',
+        paragraphs: [
+          'The Forbes Georgia feature on Dr. Maka Gogiashvili, MD, DSc, and Magotherapy: cellular regeneration, 12 international patents and more than 10,000 cases worldwide.',
+        ],
+        imageAlt: 'Maka Gogiashvili in the Forbes Georgia feature',
       },
       iveria: {
         source: 'Radio Iveria of the Patriarchate (105.5) | Programme “Consilium”',
@@ -171,9 +218,14 @@ const mediaTranslations: Record<Language, MediaTranslation> = {
     typeTv: 'TV',
     typeRadio: 'Радио',
     typeAward: 'Награда',
+    typePress: 'Пресса',
     navigationLabel: 'Навигация по передаче (минуты):',
     detailsLabel: 'Подробная информация · Опыт пациентов',
     callToBook: 'Для записи звоните',
+    watchOnSite: 'Смотреть видео на palitranews.ge',
+    readPublication: 'Читать публикацию',
+    beforeLabel: 'До лечения',
+    afterLabel: 'После лечения',
     items: {
       anano: {
         source: 'TV PALITRA NEWS | передача «Мкурнали» (Целитель)',
@@ -189,6 +241,22 @@ const mediaTranslations: Record<Language, MediaTranslation> = {
         linkText:
           'Мама пациента делится опытом и призывает обратиться к безопасному методу восстановления зрения — Маготерапии.',
         linkAuthor: 'Анано Тавхелидзе',
+      },
+      palitra2024: {
+        source: 'Palitra News | Видео',
+        title: 'Продвижение в восстановлении зрения — офтальмолог Мака Гогиашвили',
+        paragraphs: [
+          'В сюжете Palitra News офтальмолог Мака Гогиашвили рассказывает о продвижении в восстановлении зрения — аппаратном персонифицированном лечении без операций и медикаментов.',
+        ],
+        imageAlt: 'Продвижение в восстановлении зрения — офтальмолог Мака Гогиашвили, Palitra News',
+      },
+      forbes: {
+        source: 'Forbes Georgia | Публикация',
+        title: 'Новый взгляд на офтальмологию: пробуждение «спящих» клеток',
+        paragraphs: [
+          'Публикация Forbes Georgia о докторе медицинских наук Маке Гогиашвили и Маготерапии: клеточная регенерация, 12 международных патентов и более 10 000 случаев по всему миру.',
+        ],
+        imageAlt: 'Мака Гогиашвили в публикации Forbes Georgia',
       },
       iveria: {
         source: 'Радио «Иверия» Патриархии (105.5) | передача «Консилиум»',

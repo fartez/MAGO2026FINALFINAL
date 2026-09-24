@@ -8,7 +8,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { usePersonaTranslations, PERSONA_PATH } from '../translations/persona';
 import { useMediaTranslations } from '../translations/media';
 
-type MediaType = 'tv' | 'radio' | 'award';
+type MediaType = 'tv' | 'radio' | 'award' | 'press';
 
 /**
  * Structural data for every publication (text lives in translations/media.ts,
@@ -23,7 +23,16 @@ interface MediaItem {
   video?: { id: string; start?: number };
   videoLink?: string;
   image?: string;
+  /** Optimised image pair (base path, no extension) shown as WebP + JPEG. */
+  picture?: string;
   phone?: string;
+  /** Publication elsewhere: renders a call-to-action instead of an embed. */
+  externalUrl?: string;
+  externalLabel?: 'watchOnSite' | 'readPublication';
+  /** Internal page carrying the full text (the Forbes feature). */
+  internalPath?: string;
+  /** Before / after photographs shown beside the story. */
+  beforeAfter?: { before: string; after: string };
 }
 
 const mediaItems: MediaItem[] = [
@@ -35,6 +44,15 @@ const mediaItems: MediaItem[] = [
     video: { id: 'hWrwOMahiZg', start: 4 },
     videoLink: 'https://www.youtube.com/watch?v=hWrwOMahiZg',
     phone: '599 506 507',
+    beforeAfter: { before: '/images/media/anano-before', after: '/images/media/anano-after' },
+  },
+  {
+    id: 'forbes',
+    date: '27.04.2026',
+    type: 'press',
+    picture: '/forbes/maka-gogiashvili-forbes',
+    internalPath: '/forbes',
+    externalLabel: 'readPublication',
   },
   { id: 'iveria', date: '23.02.2026', type: 'radio', image: '/images/makaimage.jpeg' },
   { id: 'persona', date: '11.02.2026', type: 'award' },
@@ -42,6 +60,15 @@ const mediaItems: MediaItem[] = [
   { id: 'postv', date: '18.07.2023', type: 'tv', video: { id: 'CjFQuVTuYT4', start: 433 } },
   { id: 'gds', date: '22.05.2020', type: 'tv' },
   { id: 'mir', date: '24.12.2018', type: 'tv', video: { id: 'L5gxAOIK1SQ' } },
+  {
+    id: 'palitra2024',
+    date: '23.10.2024',
+    type: 'tv',
+    picture: '/images/media/palitra-vision-progress',
+    externalUrl:
+      'https://palitranews.ge/video/248501-cinsvla-mxedvelobis-agdgenashi-optalmologi-maka-gogiashvili/',
+    externalLabel: 'watchOnSite',
+  },
 ];
 
 function dateKey(date: string) {
@@ -124,12 +151,45 @@ function CardHeader({ date, typeLabel, source }: { date: string; typeLabel: stri
 
 const paragraphStyle = { fontSize: '0.82rem', color: '#374151', lineHeight: 1.75 } as const;
 
+/** WebP with a JPEG fallback, for the optimised media images. */
+function Picture({ base, alt, style }: { base: string; alt: string; style?: React.CSSProperties }) {
+  return (
+    <picture>
+      <source srcSet={`${base}.webp`} type="image/webp" />
+      <img
+        src={`${base}.jpg`}
+        alt={alt}
+        loading="lazy"
+        decoding="async"
+        style={{ display: 'block', width: '100%', height: 'auto', borderRadius: '8px', ...style }}
+      />
+    </picture>
+  );
+}
+
+const ctaStyle = {
+  display: 'inline-block',
+  marginTop: '16px',
+  backgroundColor: NAVY,
+  color: '#fff',
+  borderRadius: '6px',
+  padding: '10px 22px',
+  fontSize: '0.82rem',
+  fontWeight: 700,
+  textDecoration: 'none',
+} as const;
+
 export default function MediaPage() {
   const { language } = useLanguage();
   const t = useMediaTranslations(language);
   const p = usePersonaTranslations(language);
 
-  const typeLabel: Record<MediaType, string> = { tv: t.typeTv, radio: t.typeRadio, award: t.typeAward };
+  const typeLabel: Record<MediaType, string> = {
+    tv: t.typeTv,
+    radio: t.typeRadio,
+    award: t.typeAward,
+    press: t.typePress,
+  };
 
   const renderBody = (item: MediaItem) => {
     if (item.id === 'persona') {
@@ -210,7 +270,7 @@ export default function MediaPage() {
     }
 
     const text = t.items[item.id];
-    const hasSideContent = item.video || item.image || text.timestamps;
+    const hasSideContent = item.video || item.image || item.picture || text.timestamps;
 
     return (
       <div style={{ padding: '24px 28px' }}>
@@ -258,6 +318,19 @@ export default function MediaPage() {
                   {text.linkAuthor && <> {text.linkAuthor}</>}
                 </p>
               )}
+              {(item.externalUrl || item.internalPath) && item.externalLabel && (
+                <div>
+                  {item.internalPath ? (
+                    <Link to={item.internalPath} style={ctaStyle}>
+                      {t[item.externalLabel]} →
+                    </Link>
+                  ) : (
+                    <a href={item.externalUrl} target="_blank" rel="noopener noreferrer" style={ctaStyle}>
+                      {t[item.externalLabel]} →
+                    </a>
+                  )}
+                </div>
+              )}
               {item.phone && (
                 <div style={{ marginTop: '16px' }}>
                   <p style={{ ...paragraphStyle, margin: 0 }}>
@@ -281,6 +354,34 @@ export default function MediaPage() {
             </div>
           )}
 
+          {item.picture && (
+            <div>
+              {item.externalUrl ? (
+                <a href={item.externalUrl} target="_blank" rel="noopener noreferrer">
+                  <Picture
+                    base={item.picture}
+                    alt={text.imageAlt || text.title}
+                    style={{ boxShadow: '0 2px 10px rgba(0,0,0,0.15)' }}
+                  />
+                </a>
+              ) : item.internalPath ? (
+                <Link to={item.internalPath}>
+                  <Picture
+                    base={item.picture}
+                    alt={text.imageAlt || text.title}
+                    style={{ boxShadow: '0 2px 10px rgba(0,0,0,0.15)' }}
+                  />
+                </Link>
+              ) : (
+                <Picture
+                  base={item.picture}
+                  alt={text.imageAlt || text.title}
+                  style={{ boxShadow: '0 2px 10px rgba(0,0,0,0.15)' }}
+                />
+              )}
+            </div>
+          )}
+
           {item.image && (
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
               <img
@@ -294,6 +395,41 @@ export default function MediaPage() {
                   objectFit: 'cover',
                 }}
               />
+            </div>
+          )}
+
+          {item.beforeAfter && (
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: '1fr 1fr',
+                gap: '12px',
+                alignSelf: 'start',
+              }}
+            >
+              {([
+                [item.beforeAfter.before, t.beforeLabel],
+                [item.beforeAfter.after, t.afterLabel],
+              ] as const).map(([base, label]) => (
+                <figure key={base} style={{ margin: 0 }}>
+                  <Picture
+                    base={base}
+                    alt={`${text.linkAuthor || text.title} — ${label}`}
+                    style={{ boxShadow: '0 2px 10px rgba(0,0,0,0.15)' }}
+                  />
+                  <figcaption
+                    style={{
+                      marginTop: '6px',
+                      textAlign: 'center',
+                      fontSize: '0.72rem',
+                      fontWeight: 700,
+                      color: NAVY,
+                    }}
+                  >
+                    {label}
+                  </figcaption>
+                </figure>
+              ))}
             </div>
           )}
 

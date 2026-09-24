@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import { Language } from '../contexts/LanguageContext';
 
-const HTML_LANG: Record<Language, string> = { ge: 'ka', ru: 'ru', en: 'en' };
+/** BCP-47 codes; Georgian is published as ka-GE, as the client asked. */
+const HTML_LANG: Record<Language, string> = { ge: 'ka-GE', ru: 'ru', en: 'en' };
 
 interface SeoOptions {
   language: Language;
@@ -14,6 +15,14 @@ interface SeoOptions {
   ogImageAlt?: string;
   canonicalPath?: string;
   ogType?: 'website' | 'article';
+  /** Same page in the other languages, for hreflang + og:locale:alternate. */
+  alternates?: Partial<Record<Language, string>>;
+  /** hreflang="x-default" target; defaults to the canonical path. */
+  defaultAlternate?: string;
+  /** JSON-LD injected as <script type="application/ld+json">. */
+  structuredData?: Record<string, unknown>;
+  /** Explicit robots directive; omitted tags mean "index, follow". */
+  robots?: string;
 }
 
 /** Undo functions collected while the tags are written, run on unmount. */
@@ -36,6 +45,12 @@ function setMeta(
   const el = document.createElement('meta');
   el.setAttribute(attr, key);
   el.setAttribute('content', content);
+  document.head.appendChild(el);
+  undo.push(() => el.remove());
+}
+
+/** Adds a tag that may legitimately appear many times (hreflang, locales). */
+function addTag(undo: Restore[], el: HTMLElement) {
   document.head.appendChild(el);
   undo.push(() => el.remove());
 }
@@ -71,6 +86,10 @@ export function useSeo({
   ogImageAlt,
   canonicalPath,
   ogType = 'article',
+  alternates,
+  defaultAlternate,
+  structuredData,
+  robots,
 }: SeoOptions) {
   useEffect(() => {
     const undo: Restore[] = [];
@@ -109,10 +128,60 @@ export function useSeo({
       setMeta(undo, 'meta[property="og:url"]', 'property', 'og:url', url);
     }
 
+    if (robots) {
+      setMeta(undo, 'meta[name="robots"]', 'name', 'robots', robots);
+    }
+
+    if (alternates) {
+      for (const [lang, path] of Object.entries(alternates) as [Language, string][]) {
+        const link = document.createElement('link');
+        link.setAttribute('rel', 'alternate');
+        link.setAttribute('hreflang', HTML_LANG[lang]);
+        link.setAttribute('href', `${origin}${path}`);
+        addTag(undo, link);
+
+        if (lang !== language) {
+          const locale = document.createElement('meta');
+          locale.setAttribute('property', 'og:locale:alternate');
+          locale.setAttribute('content', HTML_LANG[lang]);
+          addTag(undo, locale);
+        }
+      }
+
+      const xDefault = document.createElement('link');
+      xDefault.setAttribute('rel', 'alternate');
+      xDefault.setAttribute('hreflang', 'x-default');
+      xDefault.setAttribute('href', `${origin}${defaultAlternate || canonicalPath || '/'}`);
+      addTag(undo, xDefault);
+    }
+
+    if (structuredData) {
+      const script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.textContent = JSON.stringify(structuredData);
+      addTag(undo, script);
+    }
+
     return () => {
       document.title = previousTitle;
       document.documentElement.lang = previousLang;
       for (const restore of undo.reverse()) restore();
     };
-  }, [language, title, description, keywords, ogTitle, ogDescription, ogImage, ogImageAlt, canonicalPath, ogType]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [
+    language,
+    title,
+    description,
+    keywords,
+    ogTitle,
+    ogDescription,
+    ogImage,
+    ogImageAlt,
+    canonicalPath,
+    ogType,
+    robots,
+    defaultAlternate,
+    JSON.stringify(alternates),
+    JSON.stringify(structuredData),
+  ]);
 }

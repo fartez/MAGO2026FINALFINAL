@@ -6,6 +6,7 @@ import YouTubeBanner from '../components/YouTubeBanner';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useSielmeTranslations } from '../translations/sielme';
 import FloatingButtons from '../components/FloatingButtons';
+import { patientVideos, embedUrl } from '../data/patientVideos';
 
 export default function SielmePage() {
   const { language, getSiteContent } = useLanguage();
@@ -365,7 +366,7 @@ export default function SielmePage() {
             {t.patientVideosTitle}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
+            {patientVideos(language, 'sielme', [
               'R4lKHSBDK2o',
               'CMnloViBiN4',
               'TbVzKUz2V-w',
@@ -375,14 +376,14 @@ export default function SielmePage() {
               'TKQ9gaSNbeI',
               '0NH2s9tW78A',
               'DWGdUi_oC4I',
-            ].map((id) => (
-              <div key={id} className="aspect-video w-full">
+            ]).map((video) => (
+              <div key={video.id} className="aspect-video w-full">
                 <iframe
                   className="w-full h-full rounded shadow"
-                  src={`https://www.youtube.com/embed/${id}`}
+                  src={embedUrl(video)}
                   frameBorder="0"
                   allowFullScreen
-                  title={`video-${id}`}
+                  title={`video-${video.id}`}
                 />
               </div>
             ))}

@@ -6,6 +6,7 @@ import YouTubeBanner from '../components/YouTubeBanner';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useGalleryTranslations } from '../translations/gallery';
 import FloatingButtons from '../components/FloatingButtons';
+import { patientVideos, embedUrl, PatientVideo, VideoTopic } from '../data/patientVideos';
 
 const sectionVideoIds: Record<string, string[]> = {
   sielme: ['R4lKHSBDK2o', 'CMnloViBiN4', 'TbVzKUz2V-w', 'xBo7gHdQxhE', 'cUBmhbOkczg', 'cy13ln--Ts4', 'TKQ9gaSNbeI', '0NH2s9tW78A', 'DWGdUi_oC4I'],
@@ -30,7 +31,17 @@ const sectionKeys: SectionKey[] = [
   'axlomxedveloba', 'ushedego', 'soreuli',
 ];
 
-function VideoGrid({ videos }: { videos: string[] }) {
+/** Sections that have a Russian-language set of their own. */
+const russianTopics: Partial<Record<string, VideoTopic>> = {
+  sielme: 'sielme',
+  astigmatizmi: 'astigmatizmi',
+  glaukoma: 'glaukoma',
+  pigmenturiRetiniti: 'pigmenturiRetiniti',
+  ambliopia: 'ambliopia',
+  sorsmxedveloba: 'sorsmxedveloba',
+};
+
+function VideoGrid({ videos }: { videos: PatientVideo[] }) {
   return (
     <div
       style={{
@@ -48,7 +59,7 @@ function VideoGrid({ videos }: { videos: string[] }) {
           justifyContent: 'center',
         }}
       >
-        {videos.map((videoId, i) => (
+        {videos.map((video, i) => (
           <div
             key={i}
             style={{
@@ -62,8 +73,8 @@ function VideoGrid({ videos }: { videos: string[] }) {
           >
             <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
               <iframe
-                src={`https://www.youtube.com/embed/${videoId}`}
-                title={`Video ${videoId}`}
+                src={embedUrl(video)}
+                title={`Video ${video.id}`}
                 frameBorder="0"
                 allowFullScreen
                 style={{
@@ -199,7 +210,13 @@ export default function VideoGalleryPage() {
               <div style={{ height: '6px' }} />
             </div>
 
-            <VideoGrid videos={sectionVideoIds[key]} />
+            <VideoGrid
+              videos={
+                russianTopics[key]
+                  ? patientVideos(language, russianTopics[key]!, sectionVideoIds[key])
+                  : sectionVideoIds[key].map((id) => ({ id }))
+              }
+            />
           </div>
         ))}
       </div>

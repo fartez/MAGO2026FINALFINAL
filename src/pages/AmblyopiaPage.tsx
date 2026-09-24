@@ -7,14 +7,9 @@ import YouTubeBanner from '../components/YouTubeBanner';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useAmblyopiaTranslations } from '../translations/amblyopia';
 import FloatingButtons from '../components/FloatingButtons';
+import { patientVideos, embedUrl } from '../data/patientVideos';
 
-const videos = [
-  'https://www.youtube.com/embed/b0t2LX_RcwE',
-  'https://www.youtube.com/embed/adcdz1AOh9Q',
-  'https://www.youtube.com/embed/NzP2psuevmQ',
-  'https://www.youtube.com/embed/sg2FMRX4pLQ',
-  'https://www.youtube.com/embed/rWvuq8IApMI',
-];
+const videos = ['b0t2LX_RcwE', 'adcdz1AOh9Q', 'NzP2psuevmQ', 'sg2FMRX4pLQ', 'rWvuq8IApMI'];
 
 export default function AmblyopiaPage() {
   const { language, getSiteContent } = useLanguage();
@@ -322,12 +317,12 @@ export default function AmblyopiaPage() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-            {videos.map((src, i) => (
-              <div key={i} className="aspect-video rounded-lg overflow-hidden shadow-lg">
+            {patientVideos(language, 'ambliopia', videos).map((video) => (
+              <div key={video.id} className="aspect-video rounded-lg overflow-hidden shadow-lg">
                 <iframe
                   width="100%"
                   height="100%"
-                  src={src}
+                  src={embedUrl(video)}
                   frameBorder="0"
                   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
