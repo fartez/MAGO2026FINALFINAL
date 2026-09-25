@@ -16,8 +16,9 @@ export type VideoTopic =
 
 /**
  * Russian-language patient interviews supplied by the clinic. They replace the
- * Georgian set while the site is being read in Russian; every other language
- * keeps the original videos.
+ * Georgian set on the Russian and English versions of the site — the original
+ * list mixes in Georgian-language interviews, which English readers cannot
+ * follow. Georgian keeps its own videos.
  */
 const russianVideos: Record<VideoTopic, PatientVideo[]> = {
   sielme: [
@@ -67,16 +68,21 @@ export function embedUrl({ id, start }: PatientVideo) {
   return `https://www.youtube.com/embed/${id}${start ? `?start=${start}` : ''}`;
 }
 
+/** Languages served the Russian-language interviews. */
+const RUSSIAN_VIDEO_LANGUAGES: Language[] = ['ru', 'en'];
+
 /**
- * The videos to show for one topic: the Russian set when the site is in
- * Russian and we have one, otherwise the page's own list.
+ * The videos to show for one topic: the Russian set for the Russian and
+ * English layouts when we have one, otherwise the page's own list.
  */
 export function patientVideos(
   language: Language,
   topic: VideoTopic,
   fallback: (PatientVideo | string)[]
 ): PatientVideo[] {
-  if (language === 'ru' && russianVideos[topic]?.length) return russianVideos[topic];
+  if (RUSSIAN_VIDEO_LANGUAGES.includes(language) && russianVideos[topic]?.length) {
+    return russianVideos[topic];
+  }
   return fallback.map((v) => (typeof v === 'string' ? { id: v } : v));
 }
 
